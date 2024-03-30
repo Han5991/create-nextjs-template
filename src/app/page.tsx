@@ -2,7 +2,14 @@ import Image from 'next/image';
 
 import styles from './page.module.css';
 
-export default function Home() {
+import {Http} from '@shared/lib/http';
+
+const http = new Http();
+
+const getHttp = () => http.get<{test: number}>('/api/ok');
+
+const Home = async () => {
+  const {data} = await getHttp();
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -27,7 +34,7 @@ export default function Home() {
           </a>
         </div>
       </div>
-
+      {data && <h1 className={styles.title}>{data.test}</h1>}
       <div className={styles.center}>
         <Image
           className={styles.logo}
@@ -38,7 +45,6 @@ export default function Home() {
           priority
         />
       </div>
-
       <div className={styles.grid}>
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -88,4 +94,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default Home;
