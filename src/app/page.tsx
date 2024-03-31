@@ -1,18 +1,22 @@
+'use client';
+
 import Image from 'next/image';
 
 import styles from './page.module.css';
 
-import {Http} from '@shared/lib/http';
+import {usePhotos} from '@entities/photo/hooks';
 
-const http = new Http();
-
-const getHttp = () => http.get<{test: number}>('/api/ok');
-
-const Home = async () => {
-  const {data} = await getHttp();
+const Home = () => {
+  const {data} = usePhotos();
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        {data.map(photo => (
+          <div key={photo.id}>
+            <h1>{photo.title}</h1>
+            <Image alt={photo.title} src={photo.url} width={200} height={200} />
+          </div>
+        ))}
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
@@ -34,7 +38,6 @@ const Home = async () => {
           </a>
         </div>
       </div>
-      {data && <h1 className={styles.title}>{data.test}</h1>}
       <div className={styles.center}>
         <Image
           className={styles.logo}
@@ -95,5 +98,4 @@ const Home = async () => {
     </main>
   );
 };
-
 export default Home;

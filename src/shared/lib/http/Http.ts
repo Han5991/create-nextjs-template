@@ -26,7 +26,7 @@ class Http {
     return this.instance;
   }
 
-  public async get<T, D = unknown>(
+  protected async get<T, D = unknown>(
     url: string,
     data?: D,
     headers?: AxiosRequestConfig['headers'],

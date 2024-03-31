@@ -3,7 +3,7 @@ import {Inter} from 'next/font/google';
 import './globals.css';
 import type {ReactNode} from 'react';
 
-import Providers from '@/app/_providers';
+import Providers from '@/widgets/providers';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -17,7 +17,7 @@ const RootLayout = ({
 }: Readonly<{
   children: ReactNode;
 }>) => (
-  <html lang="en">
+  <html lang="ko">
     <body className={inter.className}>
       <Providers>{children}</Providers>
     </body>

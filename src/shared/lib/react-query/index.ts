@@ -1,1 +1,1 @@
-export {default as queryClient} from './queryClient'
+export {getQueryClient} from './queryClient';

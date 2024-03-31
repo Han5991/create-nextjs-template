@@ -1,12 +1,21 @@
 import {QueryClient} from '@tanstack/react-query';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      refetchOnWindowFocus: false,
+const makeQueryClient = () =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        retry: false,
+      },
     },
-  },
-});
+  });
 
-export default queryClient;
+let browserQueryClient: QueryClient | undefined;
+
+export const getQueryClient = () => {
+  if (typeof window === 'undefined') {
+    return makeQueryClient();
+  }
+  if (!browserQueryClient) browserQueryClient = makeQueryClient();
+  return browserQueryClient;
+};

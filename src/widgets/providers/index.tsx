@@ -8,11 +8,7 @@ type ProvidersProps = {
 
 const Providers = (props: ProvidersProps) => {
   const {children} = props;
-  return (
-    <QueryClientProvider>
-      {children}
-    </QueryClientProvider>
-  );
+  return <QueryClientProvider>{children}</QueryClientProvider>;
 };
 
 export default Providers;
