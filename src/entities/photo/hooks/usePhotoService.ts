@@ -15,25 +15,25 @@ export const usePhotos = () => {
   };
 };
 
-export const usePhoto = ({photoId}: {photoId: Photo['id']}) => {
+export const usePhoto = (photoId: Photo['id']) => {
   const {data} = useSuspenseQuery({
     queryKey: photoQueryKeys.detail(photoId),
     queryFn: () => photoService.getPhoto(photoId),
   });
 
   return {
-    data,
+    photo: data,
   };
 };
 
-export const useComments = ({photoId}: {photoId: Photo['id']}) => {
+export const useComments = (photoId: Photo['id']) => {
   const {data} = useSuspenseQuery({
     queryKey: photoQueryKeys.detailComments(photoId),
     queryFn: () => photoService.getComments(photoId),
   });
 
   return {
-    data,
+    comment: data,
   };
 };
 

@@ -58,7 +58,7 @@ class Http {
     data?: D,
     headers?: AxiosRequestConfig['headers'],
   ) {
-    return this.getAxiosInstance().delete<T>(url, {headers, data});
+    return this.getAxiosInstance().delete<T>(url, {headers, photo: data});
   }
 }
 

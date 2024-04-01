@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext", "es6"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es6"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,12 +28,21 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@widgets/*": ["./src/widgets/*"],
-      "@features/*": ["./src/features/*"],
-      "@entities/*": ["./src/entities/*"],
-      "@shared/*": ["./src/shared/*"],
+      "@/*": [
+        "./src/*"
+      ],
+      "@widgets/*": [
+        "./src/widgets/*"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ],
+      "@entities/*": [
+        "./src/entities/*"
+      ],
+      "@shared/*": [
+        "./src/shared/*"
+      ]
     }
   },
   "include": [
@@ -40,5 +54,8 @@
     ".eslintrc.js",
     "next-sitemap.config.js"
   ],
-  "exclude": ["node_modules", "./tsconfig.json"]
+  "exclude": [
+    "node_modules",
+    "./tsconfig.json"
+  ]
 }

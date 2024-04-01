@@ -8,19 +8,12 @@ class PhotoService extends Http {
   }
 
   async getPhoto(photoId: number) {
-    const {data} = await this.get<Photo>(`/photo/${photoId}`);
+    const {data} = await this.get<Photo>(`/photos/${photoId}`);
     return data;
   }
 
   async getComments(photoId: number) {
-    const {data} = await this.get<Comment[]>(`/photo/${photoId}/comments`);
-    return data;
-  }
-
-  async getComment({photoId, commentId}: {photoId: number; commentId: number}) {
-    const {data} = await this.get<Comment[]>(
-      `/photo/${photoId}/comments/${commentId}`,
-    );
+    const {data} = await this.get<Comment[]>(`/photos/${photoId}/comments`);
     return data;
   }
 }
