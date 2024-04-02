@@ -1,7 +1,7 @@
 import {useSuspenseQuery} from '@tanstack/react-query';
 
 import {photoQueryKeys} from '@entities/photo/hooks/querykeys';
-import type {Comment, Photo} from '@entities/photo/model';
+import type {Photo} from '@entities/photo/model';
 import {photoService} from '@entities/photo/service';
 
 export const usePhotos = () => {
@@ -17,7 +17,7 @@ export const usePhotos = () => {
 
 export const usePhoto = (photoId: Photo['id']) => {
   const {data} = useSuspenseQuery({
-    queryKey: photoQueryKeys.detail(photoId),
+    queryKey: photoQueryKeys.photos(photoId),
     queryFn: () => photoService.getPhoto(photoId),
   });
 
@@ -28,28 +28,11 @@ export const usePhoto = (photoId: Photo['id']) => {
 
 export const useComments = (photoId: Photo['id']) => {
   const {data} = useSuspenseQuery({
-    queryKey: photoQueryKeys.detailComments(photoId),
+    queryKey: photoQueryKeys.comments(photoId),
     queryFn: () => photoService.getComments(photoId),
   });
 
   return {
     comment: data,
-  };
-};
-
-export const useComment = ({
-  photoId,
-  commentId,
-}: {
-  photoId: Photo['id'];
-  commentId: Comment['id'];
-}) => {
-  const {data} = useSuspenseQuery({
-    queryKey: photoQueryKeys.detailComment({photoId, commentId}),
-    queryFn: () => photoService.getComment({photoId, commentId}),
-  });
-
-  return {
-    data,
   };
 };

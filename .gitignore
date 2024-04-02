@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+## Panda
+styled-system
+styled-system-studio
+## Panda
+./src/shared/styled-system
+./src/shared/styled-system-studio

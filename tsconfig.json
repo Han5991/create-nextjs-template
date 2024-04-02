@@ -42,7 +42,10 @@
       ],
       "@shared/*": [
         "./src/shared/*"
-      ]
+      ],
+      "@styles/*": [
+        "./src/shared/styled-system/*"
+      ],
     }
   },
   "include": [
@@ -52,10 +55,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".eslintrc.js",
-    "next-sitemap.config.js"
   ],
   "exclude": [
     "node_modules",
-    "./tsconfig.json"
+    "./tsconfig.json",
   ]
 }
