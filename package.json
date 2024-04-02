@@ -52,6 +52,6 @@
     ]
   },
   "bin": {
-    "create-nextjs-template": "./bin/create-nextjs-template"
+    "create-nextjs-template": "./bin/cli.js"
   }
 }

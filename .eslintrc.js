@@ -86,7 +86,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     camelcase: 'off',
   },
-  ignorePatterns: ['node_modules', 'src/shared/styled-system/**/*'],
+  ignorePatterns: ['node_modules', 'src/shared/styled-system/**/*', 'bin/**/*'],
   globals: {fetch: true},
   settings: {
     'import/resolver': {
