@@ -13,8 +13,10 @@ const runCommand = command => {
 };
 
 const repoName = process.argv[2];
-const gitCheckout = `git clone --depth 1 https://github.com/Han5991/create-nextjs-template.git ${repoName}`;
-const inatallDepsCommand = `cd ${repoName} && yarn install`;
+const gitCheckout = `git clone --depth 1 https://github.com/Han5991/create-nextjs-template.git ${
+  repoName || 'my-app'
+}`;
+const installDepsCommand = `cd ${repoName} && yarn`;
 
 console.log(`Creating a new Next.js app in ${repoName}`);
 
@@ -25,7 +27,7 @@ if (!checkOut) {
   process.exit(-1);
 }
 
-const installDeps = runCommand(inatallDepsCommand);
+const installDeps = runCommand(installDepsCommand);
 if (!installDeps) {
   console.error('Failed to install dependencies');
   process.exit(-1);
