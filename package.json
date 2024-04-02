@@ -1,7 +1,6 @@
 {
   "name": "create-nextjs-template",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "dev": "rm -rf .next && next dev --turbo",
     "build": "next build",
@@ -51,5 +50,8 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "bin": {
+    "create-nextjs-template": "./bin/create-nextjs-template"
   }
 }
