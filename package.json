@@ -2,6 +2,19 @@
   "name": "create-nextjs-template",
   "version": "1.0.0",
   "private": false,
+  "author": {
+    "email": "rewq5991@gmail.com",
+    "name": "hansangwook"
+  },
+  "repository": {
+    "directory": "packages/create-nextjs-template",
+    "type": "git",
+    "url": "git+https://github.com/Han5991/create-nextjs-template.git"
+  },
+  "bugs": {
+    "email": "rewq5991@gmail.com",
+    "url": "https://github.com/Han5991/create-nextjs-template/issues"
+  },
   "scripts": {
     "dev": "rm -rf .next && next dev --turbo",
     "build": "next build",
